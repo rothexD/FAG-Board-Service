@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using FAG_Board_Service.Contracts;
 using FAG_Board_Service.Database;
 using FAG_Board_Service.Services;
@@ -8,6 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddLogging();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -18,17 +21,16 @@ builder.Services.AddScoped<IGameDatabaseAccess, GameDatabaseAccess>();
 
 builder.Services.AddDbContext<GameContext>(options =>
 {
-    options.UseNpgsql(Environment.GetEnvironmentVariable("PostGres_Connectionstring") ?? throw new Exception("missing configuration for postgres conenctionstring"));
+    options.UseNpgsql(Environment.GetEnvironmentVariable("PostGres_Connectionstring")?.Trim('\"') ??
+                      throw new Exception("missing configuration for postgres conenctionstring"));
 });
 
-var app = builder.Build();
 
+var app = builder.Build();
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 

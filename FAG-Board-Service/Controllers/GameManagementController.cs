@@ -28,6 +28,10 @@ public class GameManagement : ControllerBase
         {
             return StatusCode((int) e.StatusCode, e.Message);
         }
+        catch (Exception e)
+        {
+            return StatusCode(400, "");
+        }
     }
 
     [HttpDelete("RemoveGame")]
@@ -41,6 +45,10 @@ public class GameManagement : ControllerBase
         catch (HttpStatusException e)
         {
             return StatusCode((int) e.StatusCode, e.Message);
+        }
+        catch (Exception e)
+        {
+            return StatusCode(400, "");
         }
     }
 }

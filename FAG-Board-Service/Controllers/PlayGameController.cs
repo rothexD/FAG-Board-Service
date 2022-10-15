@@ -28,6 +28,10 @@ public class PlayGameController : ControllerBase
         {
             return StatusCode((int)e.StatusCode, e.Message);
         }
+        catch (Exception e)
+        {
+            return StatusCode(400, "");
+        }
     }
     
     [HttpPost("VisitTileOnBoard")]
@@ -41,6 +45,10 @@ public class PlayGameController : ControllerBase
         catch(HttpStatusException e)
         {
             return StatusCode((int)e.StatusCode, e.Message);
+        }
+        catch (Exception e)
+        {
+            return StatusCode(400, "");
         }
     }
 }
