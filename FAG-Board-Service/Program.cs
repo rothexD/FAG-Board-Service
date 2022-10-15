@@ -25,7 +25,6 @@ builder.Services.AddDbContext<GameContext>(options =>
                       throw new Exception("missing configuration for postgres conenctionstring"));
 });
 
-
 var app = builder.Build();
 // Configure the HTTP request pipeline.
 
