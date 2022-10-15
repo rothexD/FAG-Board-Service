@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <RootNamespace>FAG_Board_Service</RootNamespace>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\FAG-Board-Service.Contracts\FAG-Board-Service.Contracts.csproj" />
+      <ProjectReference Include="..\FAG-Board-Service.Models\FAG-Board-Service.Models.csproj" />
+      <ProjectReference Include="..\FAG-Board-Service.Services\FAG-Board-Service.Services.csproj" />
+      <ProjectReference Include="..\FAG-Board-Service.Exceptions\FAG-Board-Service.Exceptions.csproj" />
+    </ItemGroup>
+
+</Project>

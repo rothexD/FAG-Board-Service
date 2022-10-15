@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FAG-Board-Service", "FAG-Board-Service\FAG-Board-Service.csproj", "{2159327C-353E-4B93-8FD6-DAB3804C4DD3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FAG-Board-Service.Models", "FAG-Board-Service.Models\FAG-Board-Service.Models.csproj", "{370788E7-E2CE-44DC-AB27-4FC039BC6004}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FAG-Board-Service.Services", "FAG-Board-Service.Services\FAG-Board-Service.Services.csproj", "{C3BD2DAC-4542-4FA6-993D-06B00C536565}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FAG-Board-Service.Contracts", "FAG-Board-Service.Contracts\FAG-Board-Service.Contracts.csproj", "{918EDF8D-D040-426B-887D-983D4A9D0E10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FAG-Board-Service.Database", "FAG-Board-Service.Database\FAG-Board-Service.Database.csproj", "{C14654D3-A3FE-4153-B00A-CB5A996D48B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FAG-Board-Service.Exceptions", "FAG-Board-Service.Exceptions\FAG-Board-Service.Exceptions.csproj", "{06218A6B-2B22-4406-B015-7B076F3870C8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2159327C-353E-4B93-8FD6-DAB3804C4DD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2159327C-353E-4B93-8FD6-DAB3804C4DD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2159327C-353E-4B93-8FD6-DAB3804C4DD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2159327C-353E-4B93-8FD6-DAB3804C4DD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{370788E7-E2CE-44DC-AB27-4FC039BC6004}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{370788E7-E2CE-44DC-AB27-4FC039BC6004}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{370788E7-E2CE-44DC-AB27-4FC039BC6004}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{370788E7-E2CE-44DC-AB27-4FC039BC6004}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3BD2DAC-4542-4FA6-993D-06B00C536565}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3BD2DAC-4542-4FA6-993D-06B00C536565}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3BD2DAC-4542-4FA6-993D-06B00C536565}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3BD2DAC-4542-4FA6-993D-06B00C536565}.Release|Any CPU.Build.0 = Release|Any CPU
+		{918EDF8D-D040-426B-887D-983D4A9D0E10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{918EDF8D-D040-426B-887D-983D4A9D0E10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{918EDF8D-D040-426B-887D-983D4A9D0E10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{918EDF8D-D040-426B-887D-983D4A9D0E10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C14654D3-A3FE-4153-B00A-CB5A996D48B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C14654D3-A3FE-4153-B00A-CB5A996D48B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C14654D3-A3FE-4153-B00A-CB5A996D48B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C14654D3-A3FE-4153-B00A-CB5A996D48B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06218A6B-2B22-4406-B015-7B076F3870C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06218A6B-2B22-4406-B015-7B076F3870C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06218A6B-2B22-4406-B015-7B076F3870C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06218A6B-2B22-4406-B015-7B076F3870C8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

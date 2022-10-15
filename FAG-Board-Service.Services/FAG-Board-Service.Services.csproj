@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <RootNamespace>FAG_Board_Service.Services</RootNamespace>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\FAG-Board-Service.Contracts\FAG-Board-Service.Contracts.csproj" />
+      <ProjectReference Include="..\FAG-Board-Service.Database\FAG-Board-Service.Database.csproj" />
+      <ProjectReference Include="..\FAG-Board-Service.Models\FAG-Board-Service.Models.csproj" />
+      <ProjectReference Include="..\FAG-Board-Service.Exceptions\FAG-Board-Service.Exceptions.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.9" />
+      <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.7" />
+    </ItemGroup>
+
+</Project>
