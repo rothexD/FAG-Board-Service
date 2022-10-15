@@ -1,5 +1,8 @@
-﻿using FAG_Board_Service.Contracts;
+﻿using System.Net;
+using FAG_Board_Service.Contracts;
+using FAG_Board_Service.Exceptions;
 using FAG_Board_Service.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace FAG_Board_Service.Database;
 
@@ -25,9 +28,13 @@ public class GameDatabaseAccess : IGameDatabaseAccess
         await _context.SaveChangesAsync();
     }
 
-    public Task<GameInfo?> GetGameAsync(string gameToken)
+    public async Task<GameInfo?> GetGameAsync(string gameToken)
     {
-        return Task.FromResult(_context.GameInfos.Find(gameToken));
+        return await _context.GameInfos
+            .Include(x => x.Board)
+            .ThenInclude(x => x.X)
+            .ThenInclude(x => x.Y)
+            .FirstOrDefaultAsync(item => item.GameToken == gameToken);
     }
     
     public async Task UpdateAsync(GameInfo gameInfo)

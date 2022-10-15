@@ -18,10 +18,12 @@ public class GameManagementService : IGameManagementService
     {
         var newGame = new GameInfo()
         {
-            GameToken = Guid.NewGuid() + DateTime.Now.ToString(),
+            GameToken = Guid.NewGuid() + DateTime.UtcNow.Ticks.ToString(),
             Board = GameBoard.CreateGameBoard(gameInfo.BoardSize)
         };
         await this.dbAccess.CreateNewGameAsync(newGame);
+        
+        Console.WriteLine($"Created game {newGame.GameToken}");
         return newGame.GameToken;
     }
     
@@ -33,6 +35,7 @@ public class GameManagementService : IGameManagementService
        {
            return;
        }
+       Console.WriteLine($"Deleted game {gameInfo.GameToken}");
        await dbAccess.DeleteGameAsync(game);
     }
 }

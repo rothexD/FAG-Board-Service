@@ -9,6 +9,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\FAG-Board-Service.Contracts\FAG-Board-Service.Contracts.csproj" />
+      <ProjectReference Include="..\FAG-Board-Service.Exceptions\FAG-Board-Service.Exceptions.csproj" />
       <ProjectReference Include="..\FAG-Board-Service.Models\FAG-Board-Service.Models.csproj" />
     </ItemGroup>
 

@@ -14,11 +14,12 @@ public class PlayGameService : IPlayGameService
         _dbAccess = dbAccess;
     }
 
-    public async Task<GameStatus> GetStatusOfGameAsync(VisitRequest visitRequest)
+    public async Task<GameStatus> GetStatusOfGameAsync(string gameToken)
     {
-        var game = await _dbAccess.GetGameAsync(visitRequest.GameToken);
+        var game = await _dbAccess.GetGameAsync(gameToken);
         if (game is null)
         {
+            Console.WriteLine($"could not get status for \"{gameToken}\", game was not found");
             throw new HttpStatusException(HttpStatusCode.NotFound, "could not find matching game to token");
         }
         return new GameStatus()
@@ -34,37 +35,44 @@ public class PlayGameService : IPlayGameService
         var game = await _dbAccess.GetGameAsync(visitRequest.GameToken);
         if (game is null)
         {
+            Console.WriteLine($"could not get game for \"{visitRequest.GameToken}\", game was not found");
             throw new HttpStatusException(HttpStatusCode.NotFound, "could not find matching game to token");
         }
         if (game.Board.RemainingItems == 0)
         {
             return new GameStatus()
             {
-                TilesWithItemsLeftToVisit = 0
+                TilesWithItemsLeftToVisit = game.Board.RemainingItems
             };
         }
-        if (visitRequest.X > game.Board.Size ||visitRequest.X < 0 )
+        if (visitRequest.X >= game.Board.Size ||visitRequest.X < 0 )
         {
+            Console.WriteLine($"visit request for \"{visitRequest.GameToken}\", tried to go out of bounds X with {visitRequest.X}");
             throw new HttpStatusException(HttpStatusCode.BadRequest, "X is out of bounds");
         }
-        if (visitRequest.Y > game.Board.Size || visitRequest.Y < 0)
+        if (visitRequest.Y >= game.Board.Size || visitRequest.Y < 0)
         {
+            Console.WriteLine($"visit request for \"{visitRequest.GameToken}\", tried to go out of bounds Y with {visitRequest.X}");
             throw new HttpStatusException(HttpStatusCode.BadRequest, "Y is out of bounds");
         }
 
         var returnStatus = new GameStatus
         {
-            BoardSize = game.Board.Size
+            BoardSize = game.Board.Size,
+            TilesWithItemsLeftToVisit = game.Board.RemainingItems
         };
         
-        if (game.Board.Board[visitRequest.X][visitRequest.Y] == GameTile.Coin)
+        if (game.Board.X[visitRequest.X].Y[visitRequest.Y].TileInfo == GameTile.Coin)
         {
-            game.Board.Board[visitRequest.X][visitRequest.Y] = GameTile.Path;
+            Console.WriteLine($"visit request for \"{visitRequest.GameToken}\" with X:{visitRequest.X} and Y:{visitRequest.Y} found a coin");
+            game.Board.X[visitRequest.X].Y[visitRequest.Y].TileInfo = GameTile.Path;
             game.Board.RemainingItems--;
             
             await _dbAccess.UpdateAsync(game);
             returnStatus.TilesWithItemsLeftToVisit = game.Board.RemainingItems;
         }
+        
+        Console.WriteLine($"visit request returned");
         return returnStatus;
     }
 }

@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FAG_Board_Service.Controllers;
 
+[ApiController]
+[Route("GameManagement")]
 public class GameManagement : ControllerBase
 {
     private readonly IGameManagementService _service;
@@ -14,7 +16,7 @@ public class GameManagement : ControllerBase
         _service = service;
     }
 
-    [HttpPost]
+    [HttpPost("CreateGame")]
     public async Task<IActionResult> StartGameForPlayer(NewGameInfo newGameInfo)
     {
         try
@@ -28,7 +30,7 @@ public class GameManagement : ControllerBase
         }
     }
 
-    [HttpDelete]
+    [HttpDelete("RemoveGame")]
     public async Task<IActionResult> DeleteGameForPlayer(DeleteGameInfo deleteGameInfo)
     {
         try

@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FAG_Board_Service.Controllers;
 
+[ApiController]
+[Route("PlayGame")]
 public class PlayGameController : ControllerBase
 {
     private readonly IPlayGameService _service;
@@ -14,8 +16,8 @@ public class PlayGameController : ControllerBase
         _service = service;
     }
 
-    [HttpGet]
-    public async Task<IActionResult> GetGameStatus(VisitRequest gameToken)
+    [HttpGet("GameStatus")]
+    public async Task<IActionResult> GetGameStatus([FromQuery]string gameToken)
     {
         try
         {
@@ -28,7 +30,7 @@ public class PlayGameController : ControllerBase
         }
     }
     
-    [HttpPost]
+    [HttpPost("VisitTileOnBoard")]
     public async Task<IActionResult> VisitTileOnBoard(VisitRequest gameToken)
     {
         try

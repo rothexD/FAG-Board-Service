@@ -1,6 +1,7 @@
 using FAG_Board_Service.Contracts;
 using FAG_Board_Service.Database;
 using FAG_Board_Service.Services;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,9 +12,14 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddSingleton<IGameManagementService, GameManagementService>();
-builder.Services.AddSingleton<IPlayGameService, PlayGameService>();
-builder.Services.AddSingleton<IGameDatabaseAccess, GameDatabaseAccess>();
+builder.Services.AddScoped<IGameManagementService, GameManagementService>();
+builder.Services.AddScoped<IPlayGameService, PlayGameService>();
+builder.Services.AddScoped<IGameDatabaseAccess, GameDatabaseAccess>();
+
+builder.Services.AddDbContext<GameContext>(options =>
+{
+    options.UseNpgsql(Environment.GetEnvironmentVariable("PostGres_Connectionstring") ?? throw new Exception("missing configuration for postgres conenctionstring"));
+});
 
 var app = builder.Build();
 
