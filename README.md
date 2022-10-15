@@ -4,8 +4,8 @@
 This was coded as part of a university homework/project
 
 # How to use?
-docker-compose up should run this in default mode
-"localhost:swagger" should lead you to the enabled ui
+"docker-compose up" in console should run this in default mode using the docker-compose.yml config file
+after startup the URL "http://localhost:swagger" should lead you to the enabled SwaggerUI
 
 # 12Factors i followed?
 i followed these factors from 12Factor.net
