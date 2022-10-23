@@ -35,4 +35,4 @@ Very fast startup
 By building and releasing any commit to master to dockerhub we can reach that development goes to production fast
 
 ## 11 Logs
-i log to console which is stdout
+i log to console using a logging framework to tdout
