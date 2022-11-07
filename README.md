@@ -20,7 +20,7 @@ A default config is stored in the environment. Additional configuration can be d
 The only 3rd paty service is a PostgresDb, any PostgresDB can be used changing the connectionstring in the docker-compose file
 
 ## 5 Build, release, run
-On a commit to master branch this repository will automatically build and release to docker hub. any other use the image on dockerhub to run the latest version
+On a commit to master branch this repository will automatically build and release to docker hub.
 
 ## 6 Processes
 The web API is the only process to be run locally by the Developer, the database can be run locally or externaly using the connectionstring.
